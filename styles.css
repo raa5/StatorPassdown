@@ -1,0 +1,278 @@
+/* General styles */
+body {
+  font-family: "Larsseit", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f4f5f7;
+  overflow: hidden; /* Prevent scrollbars on body */
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 60px; /* Fixed header height */
+  z-index: 1; /* Ensure header is on top */
+  position: fixed;
+  width: 100%; /* Full width */
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 1rem;
+}
+
+h1 {
+  margin: 0;
+  color: black;
+  font-size: 1.5rem;
+  margin-left: 400px;
+  font-weight: 600;
+}
+
+nav {
+  background-color: #2f3136;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px); /* Full height minus header */
+  width: 240px;
+  position: fixed;
+  top: 60px; /* Align below header */
+  left: 0;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Allow scrolling if needed */
+  border-right: 1px solid #ddd; /* Subtle border */
+}
+
+#station-tabs {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab {
+  padding: 1rem 2rem; /* Increased padding */
+  color: #b9bbbe;
+  cursor: pointer;
+  border-left: 4px solid transparent;
+  transition: background-color 0.3s, border-left 0.3s;
+}
+
+.tab.active {
+  background-color: #3a3d41;
+  border-left: 4px solid #36c5f0;
+  color: white;
+}
+
+main {
+  margin-left: 240px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 60px); /* Full height minus header */
+  overflow: hidden; /* Prevent main overflow */
+}
+
+.station-content {
+  flex: 1;
+  display: none;
+  margin-top: 200px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Allow scrolling within content */
+  padding: 1.5rem; /* Increased padding */
+  border: 1px solid #ddd; /* Subtle border */
+}
+
+.station-content.active {
+  display: block;
+  margin-top: 80px;
+  margin-left: 25px;
+  margin-right: 20px;
+}
+
+.log-entries {
+  border-top: 1px solid #e2e2e2;
+  margin-bottom: 20px;
+  padding: 1rem; /* Increased padding */
+  background-color: #f9f9f9;
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.log-entry {
+  border-bottom: 1px solid #000000;
+  padding: 0rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.log-entry-content {
+  margin: 0;
+  font-size: 0.75rem;
+  width: calc(100% - 100px);
+  height:fit-content;
+  color: #333;
+  padding: 0.25rem; /* Padding inside entry */
+  box-sizing: border-box; Ensures padding and border are included in the width and height
+  overflow: hidden; /* Hide overflow if the text exceeds the box height */
+  word-wrap: break-word; /* Allows long words to break and wrap to the next line */
+  text-overflow: ellipsis; /* Adds "..." if text overflows */
+  white-space: normal; /* Ensures text wraps to the next line */
+}
+
+.timestamp {
+  font-size: 0.6rem;
+  color: #9e9e9e;
+  margin-top: 0.5rem;
+}
+
+.image-container {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.image-container img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.delete-button {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px; /* Set font size */
+  display: inline-block; /* Ensure button behaves like an inline element */
+  box-sizing: border-box; /* Ensures padding and border are included in the width and height */
+  height: 20px;
+  right: 0;
+  top: 0.25rem;
+  background-color: #e01e5a;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #a7082d;
+}
+
+aside#shift-tabs {
+  width: 150px;
+  background-color: #2f3136;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+  height: calc(100vh - 60px); /* Full height minus header */
+  position: fixed;
+  top: 60px; /* Align below header */
+  right: 0;
+  overflow-y: auto; /* Allow scrolling if needed */
+  overflow-x: auto; /* Allow scrolling if needed */
+  border-left: 1px solid #ddd; /* Subtle border */
+}
+
+.shift-tab {
+  padding: 1rem 1.5rem; /* Increased padding */
+  color: #b9bbbe;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.shift-tab.active {
+  background-color: #3a3d41;
+  color: white;
+}
+
+#settings {
+  width: 300px;
+  padding: 1.5rem; /* Increased padding */
+  margin-top: 50px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 4px;
+  margin-left: 1rem;
+}
+
+#settings h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+#settings label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+#settings input {
+  display: block;
+  margin-bottom: 1rem;
+  width: calc(100% - 2rem);
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#settings button {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #36c5f0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+#settings button:hover {
+  background-color: #1d9bf0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  main {
+    margin-left: 0;
+    flex-direction: column;
+  }
+
+  aside#shift-tabs {
+    width: 100%;
+    border-left: none;
+    border-bottom: 2px solid #36c5f0;
+    display: flex;
+    flex-direction: row;
+    position: relative; /* Remove fixed positioning */
+  }
+
+  #settings {
+    width: 100%;
+    margin-left: 0;
+  }
+}
